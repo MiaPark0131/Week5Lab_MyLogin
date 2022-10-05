@@ -36,11 +36,13 @@ public class LoginServlet extends HttpServlet {
         
         User user = (User) session.getAttribute("user");
         
+        //redirect
         if (user != null)   {
-            getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+            response.sendRedirect("home");
+        } else  {
+            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
 
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     @Override
