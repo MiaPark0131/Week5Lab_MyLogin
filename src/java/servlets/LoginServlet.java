@@ -56,18 +56,17 @@ public class LoginServlet extends HttpServlet {
         
         User user = new AccountService().login(username, password);
         
-        if (username == null || password == null || user == null)   {
+        if (user == null)   {
             
             request.setAttribute("username", username);
             request.setAttribute("password", password);
             request.setAttribute("message", "Invalid input. Please try again.");
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        } else  {
+
+            session.setAttribute("user", user);
+            getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
         }
-
-        session.setAttribute("user", user);
-        getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
-
-
     }
 
 }
