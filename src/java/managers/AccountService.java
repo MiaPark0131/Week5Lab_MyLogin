@@ -20,10 +20,17 @@ public class AccountService {
         
         User user = new User();
         
-        user.setUsername(username);
-        user.setPassword(null);
+        if (username.equals("abe") || username.equals("barb")) {
+            
+            if (password.equals("password"))    {
+                
+                user.setUsername(username);
+                user.setPassword(null);
         
-        return user;
+                return user;
+            }
+        }  
         
+        return null;
     }
 }
