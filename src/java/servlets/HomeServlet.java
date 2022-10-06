@@ -32,6 +32,7 @@ public class HomeServlet extends HttpServlet {
             response.sendRedirect("login");
         } else  {
             getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+            //response.sendRedirect("home");    //ERR_TOO_MANY_REDIRECTS!!
         }
 
     }

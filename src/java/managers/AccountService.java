@@ -20,7 +20,7 @@ public class AccountService {
         
         User user = new User();
         
-        //hard coded
+        //validation(hard coded)
         if (username.equals("abe") || username.equals("barb")) {
             
             if (password.equals("password"))    {
